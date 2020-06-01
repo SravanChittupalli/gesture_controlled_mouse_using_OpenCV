@@ -18,16 +18,16 @@ while True:
     image, contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE )
     for i in contours:
         area = cv2.contourArea(i)
-        if area > 500 and area < 3000:
+        if area > 1000 and area < 3000:
             cnt.append(i)
             M = cv2.moments(i)
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
             co_ordinate.append((cx , cy))
             print(area)
-    img = cv2.drawContours(frame, cnt, -1, (0,0,255), 3)
+    img = cv2.drawContours(mask, cnt, -1, (0,0,255), 3)
     for i in co_ordinate:
-        img = cv2.circle(frame,i, 2, (0,0,255), -1)
+        frame = cv2.circle(frame,i, 5, (0,0,255), -1)
 
     cv2.imshow("frame" , frame)
     cv2.imshow("Mask" , mask)

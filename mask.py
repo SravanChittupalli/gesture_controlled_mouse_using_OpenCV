@@ -3,8 +3,8 @@ import numpy as np
 import mouse
 
 vid = cv2.VideoCapture(0)
-lower_red = np.array([75, 30, 62])
-upper_red = np.array([95, 200, 200])
+lower_red = np.array([165, 120, 100])
+upper_red = np.array([179, 255, 255])
 mouse.move(100, 100, absolute=True, duration=0.2)
 while True:
     cnt = []
